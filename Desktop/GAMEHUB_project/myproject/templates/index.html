@@ -12,9 +12,12 @@
         <meta property="og:image" content="">
         <meta property="og:description" content="Social Media Platfrom for Gamers! Singup Free! Hold championships and get prizes." />
         <title>GAMEHUB</title>
-        <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
-        <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-        <link rel="stylesheet" type="text/css" href="assets/css/fonts.css">
+        <link rel="stylesheet" type="text/css" href="../static/assets/css/reset.css">
+        <link rel="stylesheet" type="text/css" href="../static/assets/css/style.css">
+        <link rel="stylesheet" type="text/css" href="../static/assets/css/fonts.css">
+<!--        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='assets/css/reset.css') }}">-->
+<!--        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='assets/css/style.css') }}">-->
+<!--        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='assets/css/fonts.css') }}">-->
 </head>
 <body>
         <header>
@@ -23,10 +26,10 @@
                                 <a href="index.html" class="logo">gamehub</a>
                                 <div>
                                         <ul class="header-ul">
-                                                <li class="flex searchlogo"><img src="assets/images/search.svg" alt="search"></li>
+                                                <li class="flex searchlogo"><img src="../static/assets/images/search.svg" alt="search"></li>
                                                 <li class="flex donate"><a class="donation" href="#">donate</a></li>
-                                                <li class="flex eng">eng <img src="assets/images/Polygon3.svg" alt="triangle"></li>
-                                                <li ><a href='registration.html'><img class="useravatar" src="assets/images/useravatar.png" alt="avatar"></a></li>
+                                                <li class="flex eng">eng <img src="../static/assets/images/Polygon3.svg" alt="triangle"></li>
+                                                <li ><a href='registration.html'><img class="useravatar" src="../static/assets/images/useravatar.png" alt="avatar"></a></li>
                                         </ul>
                                 </div>
                         </div>
@@ -35,10 +38,10 @@
                         <div class="header-block">
                                 <div>
                                         <ul class="header-ul">
-                                                <li ><a href='registration.html'><img class="useravatar" src="assets/images/useravatar.png" alt="avatar"></a></li>
-                                                <li class="flex searchlogo"><img src="assets/images/search.svg" alt="search"></li>
+                                                <li ><a href='registration.html'><img class="useravatar" src="../static/assets/images/useravatar.png" alt="avatar"></a></li>
+                                                <li class="flex searchlogo"><img src="../static/assets/images/search.svg" alt="search"></li>
                                                 <li class="logo-2"><a href="index.html" class="logo">gamehub</a></li>
-                                                <li class="flex eng">eng <img src="assets/images/Polygon3.svg" alt="triangle"></li>
+                                                <li class="flex eng">eng <img src="../static/assets/images/Polygon3.svg" alt="triangle"></li>
                                                 <li class="burger"><a href=""></a>
                                                         <div></div>
                                                         <div></div>
@@ -51,13 +54,15 @@
                 </div>
                 <nav class="navigation">
                         <ul class="nav-ul">
-                                <li class="nav-li"><a href="categories.html">categories</a></li>
-                                <li class="nav-li"><a href="pubg-championship.html">championship</a></li>
-                                <li class="nav-li"><a href="matches.html">matches</a></li>
+                                <li class="nav-li">{{nav_builder('categories', 'categories')}}</li>
+                                <li class="nav-li">{{nav_builder('championship', 'championship')}}</li>
+                                <li class="nav-li">{{nav_builder('matches', 'matches')}}</li>
                         </ul>
                         
                 </nav>
         </header>
+
+        {% block content %}
 
         <div>
                 <div class="m-section"></div>
@@ -68,7 +73,7 @@
                                                 </label></h2></div>
                                 <div class="box2">
                                         <div>
-                                                <img class="piconTortura" src="assets/images/Zappa.jpg" alt="zappa">
+                                                <img class="piconTortura" src="../static/assets/images/Zappa.jpg" alt="zappa">
                                                 <p class="pDescribe">Posted by <span>Marvelyko</span> 1 hour ago</p>
                                         </div>
                                         <div class="pHeader">First Unreal Post </div>
@@ -77,19 +82,19 @@
                                         <hr>
                                         <div class="pReact">
                                                 <a href="#"><div class="react">
-                                                <img src="assets/images/like.png" alt="like">
+                                                <img src="../static/assets/images/like.png" alt="like">
                                                 <p>Like</p></div></a>
                                                 <div class="p-line"></div>
-                                                <a href="#"><div class="react"><img src="assets/images/comment.png" alt="comment">
+                                                <a href="#"><div class="react"><img src="../static/assets/images/comment.png" alt="comment">
                                                 <p>Comment</p></div></a>
                                                 <div class="p-line"></div>
-                                                <a href="#"><div class="react"><img src="assets/images/gift.png" alt="gift">
+                                                <a href="#"><div class="react"><img src="../static/assets/images/gift.png" alt="gift">
                                                 <p>Give award</p></div></a>
                                         </div>
                                 </div>
                                 <div class="box2">
                                         <div>
-                                                <img class="piconTortura" src="assets/images/Tortura.jpg" alt="tortura">
+                                                <img class="piconTortura" src="../static/assets/images/Tortura.jpg" alt="tortura">
                                                 <p class="pDescribe">Posted by <span>Marvelyko</span> 1 hour ago</p>
                                         </div>
                                         <div class="pHeader">First Unreal Post </div>
@@ -98,20 +103,20 @@
                                         <hr>
                                         <div class="pReact">
                                                 <a href="#"><div class="react">
-                                                <img src="assets/images/like.png" alt="like">
+                                                <img src="../static/assets/images/like.png" alt="like">
                                                 <p>Like</p></div></a>
                                                 <div class="p-line"></div>
-                                                <a href="#"><div class="react"><img src="assets/images/comment.png" alt="instagram">
+                                                <a href="#"><div class="react"><img src="../static/assets/images/comment.png" alt="instagram">
                                                 <p>Comment</p></div></a>
                                                 <div class="p-line"></div>
-                                                <a href="#"><div class="react"><img src="assets/images/gift.png" alt="twitter">
+                                                <a href="#"><div class="react"><img src="../static/assets/images/gift.png" alt="twitter">
                                                 <p>Give award</p></div></a>
                                         </div>
                                 </div>
                                 <div class="box4"><p class="bookad">advertisment</p></div>
                                 <div class="box2">
                                         <div>
-                                                <img class="piconTortura" src="assets/images/Tortura.jpg" alt="tortura">
+                                                <img class="piconTortura" src="../static/assets/images/Tortura.jpg" alt="tortura">
                                                 <p class="pDescribe">Posted by <span>Marvelyko</span> 1 hour ago</p>
                                         </div>
                                         <div class="pHeader">First Unreal Post </div>
@@ -120,19 +125,19 @@
                                         <hr>
                                         <div class="pReact">
                                                 <a href="#"><div class="react">
-                                                <img src="assets/images/like.png" alt="like">
+                                                <img src="../static/assets/images/like.png" alt="like">
                                                 <p>Like</p></div></a>
                                                 <div class="p-line"></div>
-                                                <a href="#"><div class="react"><img src="assets/images/comment.png" alt="instagram">
+                                                <a href="#"><div class="react"><img src="../static/assets/images/comment.png" alt="instagram">
                                                 <p>Comment</p></div></a>
                                                 <div class="p-line"></div>
-                                                <a href="#"><div class="react"><img src="assets/images/gift.png" alt="twitter">
+                                                <a href="#"><div class="react"><img src="../static/assets/images/gift.png" alt="twitter">
                                                 <p>Give award</p></div></a>
                                         </div>
                                 </div>
                                 <div class="box2">
                                         <div>
-                                                <img class="piconTortura" src="assets/images/Zappa.jpg" alt="zappa">
+                                                <img class="piconTortura" src="../static/assets/images/Zappa.jpg" alt="zappa">
                                                 <p class="pDescribe">Posted by <span>Marvelyko</span> 1 hour ago</p>
                                         </div>
                                         <div class="pHeader">First Unreal Post </div>
@@ -141,13 +146,13 @@
                                         <hr>
                                         <div class="pReact">
                                                 <a href="#"><div class="react">
-                                                <img src="assets/images/like.png" alt="like">
+                                                <img src="../static/assets/images/like.png" alt="like">
                                                 <p>Like</p></div></a>
                                                 <div class="p-line"></div>
-                                                <a href="#"><div class="react"><img src="assets/images/comment.png" alt="instagram">
+                                                <a href="#"><div class="react"><img src="../static/assets/images/comment.png" alt="instagram">
                                                 <p>Comment</p></div></a>
                                                 <div class="p-line"></div>
-                                                <a href="#"><div class="react"><img src="assets/images/gift.png" alt="twitter">
+                                                <a href="#"><div class="react"><img src="../static/assets/images/gift.png" alt="twitter">
                                                 <p>Give award</p></div></a>
                                         </div>
                                 </div>
@@ -172,8 +177,8 @@
                                                 <hr>
                                                         <h3>Or sign in with:</h3>
                                                 <div class="social">
-                                                        <img src="assets/images/googlelogin.svg" alt="google login">
-                                                        <img src="assets/images/fblogin.svg" alt="facebook login">
+                                                        <img src="../static/assets/images/googlelogin.svg" alt="google login">
+                                                        <img src="../static/assets/images/fblogin.svg" alt="facebook login">
 
                                                 </div>
                                         </div>
@@ -181,12 +186,12 @@
                                 <div class="box6">
                                         <h3>Feature match</h3>
                                         <div class="tSpace">
-                                                <img class="ticons" src="assets/images/Tortura.jpg" alt="tortura">
+                                                <img class="ticons" src="../static/assets/images/Tortura.jpg" alt="tortura">
                                                 <p>Tortura</p>
                                         </div>
                                         <p class="mTime">23:00 <br> Today</p>
                                         <div class="tSpace">
-                                                <img class="ticons" src="assets/images/Zappa.jpg" alt="Zappa">
+                                                <img class="ticons" src="../static/assets/images/Zappa.jpg" alt="Zappa">
                                                 <p>Zappa</p>
                                         </div>
                                         <div class="matchinfo"><a href="matchinfo.html"><p class="mibutton">match info</p></a></div>
@@ -194,22 +199,23 @@
                                 <div class="box6">
                                         <h3>Feature match</h3>
                                         <div class="tSpace">
-                                                <img class="ticons" src="assets/images/Zappa.jpg" alt="zappa">
+                                                <img class="ticons" src="../static/assets/images/Zappa.jpg" alt="zappa">
                                                 <p>Zappa</p>
                                         </div>
                                         <p class="mTime">23:30 <br> Today</p>
                                         <div class="tSpace">
-                                                <img class="ticons" src="assets/images/Tortura.jpg" alt="tortura">
+                                                <img class="ticons" src="../static/assets/images/Tortura.jpg" alt="tortura">
                                                 <p>Zappa</p>
                                         </div>
                                         <div class="matchinfo"><a href="matchinfo.html"><p class="mibutton">match info</p></a></div>
                                 </div>
                                 <div class="box8"></div>
                                 <div class="box9"></div>
-                                </div> 
-                        </section> 
+                        </section>
                 </div>
         </div>
+
+        {% endblock %}
 
         <footer>
                 <div class="footer">
@@ -244,9 +250,9 @@
                         <div class="col social">
                                 <h3>social media</h3>
                                 <ul>
-                                        <a href="www.facebook.com"><li><img src="assets/images/Facebook.svg" alt="facebook"></li></a>
-                                        <a href="www.instagram.com"><li><img src="assets/images/instagram.svg" alt="instagram"></li></a>
-                                        <a href="www.twitter.com"><li><img src="assets/images/twitter.svg" alt="twitter"></li></a>
+                                        <a href="www.facebook.com"><li><img src="../static/assets/images/Facebook.svg" alt="facebook"></li></a>
+                                        <a href="www.instagram.com"><li><img src="../static/assets/images/instagram.svg" alt="instagram"></li></a>
+                                        <a href="www.twitter.com"><li><img src="../static/assets/images/twitter.svg" alt="twitter"></li></a>
                                 </ul>
                         </div>
                         </div>

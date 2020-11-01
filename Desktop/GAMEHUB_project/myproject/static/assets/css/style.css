@@ -47,7 +47,7 @@ header{
 	justify-content: space-between;
 	height: 50px;
 	width: 100%;
-	background-color: #C60314;
+	background-color: #c60314;
 }
 
 .header-2{
@@ -160,7 +160,7 @@ header{
 
 footer{
 	margin: 0 auto;
-	max-width: 1008;
+	max-width: 100%;
 	background-color: #C60314;
 	width: 100%;
 	height: auto;
@@ -1607,7 +1607,6 @@ footer >hr{
 }
 
 @media screen and (max-width: 400px) {
-
   .split {width: 95%;margin: 25px 2.5%;}
   .round {width:21%;}
   .current {-webkit-flex-grow:1;-moz-flex-grow:1;flex-grow:1;}
@@ -1616,5 +1615,5 @@ footer >hr{
   .round-details {font-size: 90%;}
   .hero-wrap {padding: 2.5em;}
   .hero p.year {margin: 5px 0 10px; font-size: 18px;}
-
+}
 }

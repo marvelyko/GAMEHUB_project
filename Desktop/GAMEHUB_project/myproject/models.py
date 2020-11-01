@@ -9,7 +9,7 @@ class Gamer(db.Model):
     #  One_to_one relationship
     # A student only has one teacher, thus uselist is False.
     # Strong assumption of 1 teacher per 1 student and vice versa.
-    teacher = db.relationship('Teacher', backref="student", uselist=False)
+    teacher = db.relationship('Teacher', backref="gamers", uselist=False)
 
     def __init__(self, name):
         # მხოლოდ გვჭირდება ამ ბაზის მოდელისთვის უნიკალური წევრის ატრიბუტის აღწერა
