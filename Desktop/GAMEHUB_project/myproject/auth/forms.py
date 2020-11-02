@@ -1,6 +1,6 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, SubmitField, ValidationError
-from wtforms.validators import DataRequired, Email, EqualTo,email_validator
+from wtforms.validators import DataRequired, Email, EqualTop
 
 from flask_login import current_user
 from myproject.models import Gamer
@@ -22,5 +22,5 @@ class RegistrationForm(FlaskForm):
             raise ValidationError('Your email has been already registered')
 
     def check_username(self,field):
-        if User.query.filter_by(username=field.data).first():
+        if Gamer.query.filter_by(username=field.data).first():
             raise ValidationError('Your username has been already registered')

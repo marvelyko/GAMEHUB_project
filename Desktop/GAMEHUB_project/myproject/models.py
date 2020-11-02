@@ -1,10 +1,15 @@
-from myproject import db
+from myproject import db,login_manager
 from werkzeug.security import generate_password_hash,check_password_hash
 from datetime import datetime
+from flask_login import UserMixin
 
-class Gamer(db.Model):
+@login_manager.user_loader
+def load_user(user_id):
+    return Gamer.query.get(user_id)
+
+class Gamer(db.Model,UserMixin):
     __tablename__ = "gamers"
-    id = db.Column(db.Integer, primery_key=True)
+    id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String)
     email = db.Column(db.String,unique=True)
     password = db.Column(db.String)
@@ -32,7 +37,7 @@ class Gamer(db.Model):
 class Post(db.Model):
     tablename = "posts"
     gamers = db.relationship(Gamer)
-    id = db.Column(db.Integer, primery_key=True)
+    id = db.Column(db.Integer, primary_key=True)
     gamer_id=db.Column(db.Integer,db.ForeignKey('gamers.id'),nullable=False)
     title = db.Column(db.String(140), nullable=False)
     text = db.Column(db.Text,nullable=False)
