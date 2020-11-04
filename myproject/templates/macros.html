@@ -1,0 +1,32 @@
+{% macro nav_builder(endpoint, name) %}
+    {% if request.endpoint.endswith(endpoint) %}
+      <a href="{{ url_for(endpoint) }}">{{name}}</a>
+    {% else %}
+      <a class="nav-link" href="{{ url_for(endpoint) }}">{{name}}</a>
+    {% endif %}
+{% endmacro %}
+
+{% macro post_builder(post) %}
+<div class="box2">
+  <div>
+          <img class="piconTortura" src="{{ url_for('static', filename='images/Zappa.jpg') }}" alt="zappa">
+          Written By: {{post.author.name}}
+  </div>
+  <div class="pHeader"> {{ post.title }}</div>
+  <hr>
+  <p class="pText">{{ post.text }}</p>
+  <hr>
+  <div class="pReact">
+          <a href="#"><div class="react">
+          <img src="{{ url_for('static', filename='images/like.png') }}" alt="like">
+          <p>Like</p></div></a>
+          <div class="p-line"></div>
+          <a href="#"><div class="react"><img src="{{ url_for('static', filename='images/comment.png') }}" alt="comment">
+          <p>Comment</p></div></a>
+          <div class="p-line"></div>
+          <a href="#"><div class="react"><img src="{{ url_for('static', filename='images/gift.png') }}" alt="gift">
+          <p>Give award</p></div></a>
+  </div>
+</div>
+
+{%endmacro%}
