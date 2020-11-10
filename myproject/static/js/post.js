@@ -13,6 +13,7 @@ function addPosts(){
         <div>
         <img class="piconTortura" src="static/images/Zappa.jpg" alt="zappa">
         Written By: ${post.author}
+        <a class="points" href="#"><img src="static/images/points.svg" alt="3point"></a>
         </div>
         <div class="pHeader"> ${post.title}</div>
         <hr>

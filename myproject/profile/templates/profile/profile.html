@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+{% block content %}
+        <div class="user-cover">
+                <ul class="user-profile-ul">
+                        <li class="user-profile-li"><a href="#"><div class="addclick" ><img src="{{url_for('static',filename='/images/crossfriend.svg')}}"></div></a></li>
+
+                        <li class="user-profile-li">
+                                <div><a href="">
+                                        {% if active %}
+                                        <img class="user-prof-pic" src="{{url_for('static',filename=user.photo)}}">
+                                        {% else %}
+                                        <img class="user-prof-pic" src="{{url_for('static',filename=user.photo)}}">
+                                        <div class="active-user"></div>
+                                        {% endif %}
+                                </a></div>
+                        </li>
+
+                        <li class="user-profile-li"><a href="#"><div class="addclick" ><img src="{{url_for('static',filename='/images/messagelogo.svg')}}"></div></a></li>
+
+                        <!-- <li class="user-profile-li"><a href="#"><img src="assets/images/chat-button.svg" alt="chat"></a></li> -->
+                </ul>
+                <p class="up-username">{{user.name}}</p>
+                <div class="up-follow">
+                        <div>
+                                <ul style= "display: flex; padding: 15px 0;">
+                                        <li class="up-follow-pic hvr-float"><a href="#"><img src="assets/images/Tortura.jpg" alt="userpicture"></a></li>
+                                        <li class="up-follow-pic hvr-float"><a href="#"><img src="assets/images/Kakashi.jpg" alt="userpicture"></a></li>
+                                        <li class="up-follow-pic hvr-float"><a href="#"><img src="assets/images/Ninja.jpg" alt="userpicture"></a></li>
+                                        <li class="up-follow-pic hvr-float"><a href="#"><img src="assets/images/Zappa.jpg" alt="userpicture"></a></li>
+                                        <li class="up-followers"><p><span>following</span></br> +27K</p></li>
+                                        <li class="up-follow-va"><a href="#"><p>view all</p></a></li>
+                                        <li><div class="div-line"></div></li>
+                                        <li class="up-follow-pic hvr-float"><a href="#"><img src="assets/images/Tortura.jpg" alt="userpicture"></a></li>
+                                        <li class="up-follow-pic hvr-float"><a href="#"><img src="assets/images/Kakashi.jpg" alt="userpicture"></a></li>
+                                        <li class="up-follow-pic hvr-float"><a href="#"><img src="assets/images/Ninja.jpg" alt="userpicture"></a></li>
+                                        <li class="up-follow-pic hvr-float"><a href="#"><img src="assets/images/Zappa.jpg" alt="userpicture"></a></li>
+                                        <li class="up-followers"><p><span>followers</span></br> +13K</p></li>
+                                        <li class="up-follow-va"><a href="#"><p>view all</p></a></li>
+                                        
+                                </ul>
+
+                        </div>
+                        <div></div>
+                </div>
+        </div>
+        <div class="profile-navbar">
+                <ul>
+                        <li><a href="#">timeline</a></li>
+                        <li><a href="#">about</a></li>
+                        <li><a href="#">trophies</a></li>
+                        <li><a href="#">more<img src="{{url_for('static',filename='/images/Polygon3.svg')}}"></a></li>
+                </ul>
+                {% if current_user.id == user.id %}
+                <a href="#"><div class="ed-prof">
+                        <a href="#"><ul>
+                                <li class="editprofile"><div ></div></li>
+                                <li class="editprofile"><p>edit profile</p></li>
+                        </ul></a>
+                </div></a>
+                {% endif %}
+        </div>
+        <div class="user-pic-video">
+                {% if current_user.id == user.id %}
+		<div class="user-pic-add">
+			<div class="cross" onclick="addPhoto()">
+                                {{ form.hidden_tag() }}
+                                {{ form.file(class="add-photo",id="choose-photo")}}
+                                {{ form.submit(class="add-photo",id="upload-photo")}}
+                        </div>
+                </div>				
+                {% endif %}
+		<div class="pic-box">
+			<div>
+				<div class="likeorcomment hvr-sweep-to-top">
+					<ul>
+						<a href="#"><li class="ertia1"><img class="vcadot1" src="{{url_for('static',filename='images/like.png')}}"><p>212</p></li></a>
+						<a href="#"><li class="ertia2"><img class="vcadot2" src="{{url_for('static',filename='images/comment.png')}}"><p>122</p></li></a>
+					</ul>
+						
+				</div>
+			</div>
+		</div>
+        </div>
+        <script src="{{url_for('static',filename='js/profile.js')}}"></script>
+{% endblock %}

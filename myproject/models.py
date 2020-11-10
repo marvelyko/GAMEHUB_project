@@ -17,7 +17,8 @@ class Gamer(db.Model,UserMixin):
     role = db.Column(db.String)
     posts = db.relationship('Post', backref="gamers",lazy='dynamic')
     # clan = relationship('clans', backref="member")
-    role = db.Column(db.String)
+    admin = db.relationship('Admin',backref="gamers")
+    photos = db.relationship("Photo",backref="gamers",lazy="dynamic")
 
 
     def __init__(self, name,email,password):
@@ -52,3 +53,19 @@ class Post(db.Model):
 
     def __repr__(self):
         return f"Post ID: {self.id} -- Date: {self.date} --- {self.title}"
+
+class Admin(db.Model):
+    __tablename__ = "admins"
+    id = db.Column(db.Integer,primary_key=True)
+    gamer_id = db.Column(db.Integer,db.ForeignKey("gamers.id"))
+    gamer = db.relationship(Gamer)
+
+class Photo(db.Model):
+    __tablename__ = "photos"
+    id = db.Column(db.Integer,primary_key=True)
+    address = db.Column(db.String)
+    gamer_id = db.Column(db.Integer,db.ForeignKey("gamers.id"))
+
+    def __init__(self,address,gamer_id):
+        self.address = address
+        self.gamer_id = gamerid
